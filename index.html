@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Regexpert - js</title>
+        <script src="regexpert.js"></script>
+        <link type="text/css" rel="stylesheet" href="regexpert.css" />
+    </head>
+    <body>
+        <ul class="aside">
+            <li>        
+                <span>flags:</span>
+                <div>
+                    g<input type="checkbox" name="flags" value="g" />
+                    i<input type="checkbox" name="flags" value="i" />
+                    m<input type="checkbox" name="flags" value="m" />
+                    y<input type="checkbox" name="flags" value="y" id="y" />
+                </div>
+            </li>
+            <li>
+                <span>Test</span>
+                <div id="test"></div>
+            </li>
+            <li>
+                <span>err</span>
+                <div id="err"></div>
+            </li>
+            <li>
+                <span>output</span>
+                <div id="blah"></div>
+            </li>
+        </ul>
+        <ul class="main">
+            <li>
+                <span>Pattern</span>
+                <div id="ref">
+                    <span class="arrow"></span>            
+                    <dl id="refContainer">
+                        
+                        <dt>.</dt>
+                        <dd>Matches any Char (use m flag to match linebreaks)</dd>
+                        
+                        <dt>\w\W</dt>
+                        <dd>Word char &amp; not word char</dd>
+                        
+                        <dt>\d\D</dt>
+                        <dd>Digit &amp; not digit</dd>
+                        
+                        <dt>\s\S</dt>
+                        <dd>Whitespace char &amp; not whitespace char</dd>
+                        
+                        <dt>[]</dt>
+                        <dd>matching set</dd>
+                        
+                        <dt>[^]</dt>
+                        <dd>Not matching set</dd>
+                        
+                        <dt>[x-y]</dt>
+                        <dd>Range can be alpha or numberic</dd>
+                        
+                        <dt>\t</dt>
+                        <dd>tab</dd>
+                        
+                        <dt>\r</dt>
+                        <dd>return</dd>
+                        
+                        <dt>\n</dt>
+                        <dd>newline</dd>
+                        
+                        <dt>\xXX</dt>
+                        <dd>Hex index selector</dd>
+                        
+                        <dt>\</dt>
+                        <dd>escape</dd>
+                        
+                        <dt>^</dt>
+                        <dd>Begins with</dd>
+                        
+                        <dt>$</dt>
+                        <dd>Ends with</dd>
+                        
+                        <dt>(?=ABC)</dt>
+                        <dd>Positive Lookahead</dd>
+                        
+                        <dt>(?!ABC)</dt>
+                        <dd>Nagative Lookahead</dd>
+                        
+                        <dt>(?&lt;=ABC)</dt>
+                        <dd>Positive Lookbehind (not JS supported yet)</dd>
+                        
+                        <dt>(?&lt;!ABC)</dt>
+                        <dd>Negative Lookbehind (not JS supported yet)</dd>
+                        
+                        <dt>?</dt>
+                        <dd>Optional (Lazy)</dd>
+                        
+                        <dt>*</dt>
+                        <dd>0 or more (add ? to make lazy)</dd>
+                        
+                        <dt>+</dt>
+                        <dd>1 or more (add ? to make lazy)</dd>
+                        
+                        <dt>{x}</dt>
+                        <dd>Matches exactly x amount</dd>
+                        
+                        <dt>{x,y}</dt>
+                        <dd>Matches between x and y amounts (add ? to make lazy)</dd>
+                        
+                        <dt>()</dt>
+                        <dd>Capturing Group</dd>
+                        
+                        <dt>(?:)</dt>
+                        <dd>Non-capturing Group</dd>
+                        
+                        <dt>|</dt>
+                        <dd>Or</dd>
+                        
+                        <dt>\x</dt>
+                        <dd>Inserts the x number of capture group for select</dd>
+                        
+                        <dt class="divider">Replace Functions:</dt>
+                        
+                        <dt>$</dt>
+                        <dd>Insertion ($$ to escape) for Replace</dd>
+                        
+                        <dt>$&amp;</dt>
+                        <dd>Inserts matched substring</dd>
+                        
+                        <dt>$`</dt>
+                        <dd>Inserts proceeding</dd>
+                        
+                        <dt>$'</dt>
+                        <dd>Inserts following</dd>
+                        
+                        <dt>$1</dt>
+                        <dd>Inserts first capture group</dd>
+                        
+                        <dt></dt>
+                        <dd></dd>
+                    </dl>
+                </div>
+                <div id="reg" contentEditable>^\d{3}([-\.]?)\d{3}\1\d{4}$</div>
+                <!--<div id="reg" contentEditable>&lt;(\w*?).*?&gt;.*?&lt;/\1&gt;</div> -->
+               
+            </li>
+            <li>
+                <span>Text to match against</span>
+                <div id="val" contentEditable>888-888-8888</div>
+                <!--<div id="val" contentEditable>&lt;div attr="something"&gt; this &lt;span&gt;and&lt;br /&gt; that&lt;/span&gt;&lt;/div&gt;</div>-->
+            </li>
+        </ul>
+        <script>
+            // test to see if the y flag is allowed for the browser.
+            try {
+                new Regex(/n/, 'y');
+            }
+            catch (e) {
+                document.getElementById('y').disabled = true;
+            }
+
+            huh();
+            windowResize();​
+        </script>
+    </body>
+</html>
+​
