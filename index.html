@@ -149,6 +149,16 @@
             </li>
         </ul>
         <script>
+            document.getElementById('reg').addEventListener('keyup', huh);
+            document.getElementById('val').addEventListener('focus', addingText);
+            document.getElementById('val').addEventListener('blur', huh);
+            window.addEventListener('resize', windowResize, false);
+            document.getElementById('ref').addEventListener('click', refHandler);
+
+            var inpts = document.querySelectorAll('input');
+            for (var i = 0; i < inpts.length; i++) {
+                inpts[i].addEventListener('change', huh);
+            }
             // test to see if the y flag is allowed for the browser.
             try {
                 new Regex(/n/, 'y');
@@ -156,9 +166,8 @@
             catch (e) {
                 document.getElementById('y').disabled = true;
             }
-
             huh();
-            windowResize();​
+            windowResize();
         </script>
     </body>
 </html>

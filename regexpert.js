@@ -47,14 +47,3 @@ function refHandler() {
     rc.style.display = rc.style.display === 'block' ? "none" : "block";
     getHeight(rc);
 }
-
-document.getElementById('reg').addEventListener('keyup', huh);
-document.getElementById('val').addEventListener('focus', addingText);
-document.getElementById('val').addEventListener('blur', huh);
-window.addEventListener('resize', windowResize, false);
-document.getElementById('ref').addEventListener('click', refHandler);
-
-var inpts = document.querySelectorAll('input');
-for (var i = 0; i < inpts.length; i++) {
-    inpts[i].addEventListener('change', huh);
-}
